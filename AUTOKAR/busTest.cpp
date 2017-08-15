@@ -55,19 +55,19 @@ protected:
     void threadSendAndReceive() {
 
         string message{""};
-        int messageToSendPerLoop = 10;
+        int messagesToSendPerLoop = 10;
 
         while( mStartedThread.load() )
         {
 
             { // this is there to make sure lock_guard release mutex upon exit of scope
                 lock_guard<mutex> guard(mMessageQueueMutex);
-                while( mMessageQueue.size() > 0 && messageToSendPerLoop != 0 ){
+                while( mMessageQueue.size() > 0 && messagesToSendPerLoop != 0 ){
                     
                     message = mMessageQueue.front();
                     mMessageQueue.pop();
                     mMessageSentCount.store( mMessageSentCount.load() + 1);
-                    messageToSendPerLoop--;
+                    messagesToSendPerLoop--;
 
                     // do something with message
                     cout << "send message [" << message << "]\n";
@@ -75,9 +75,14 @@ protected:
                 }
             }
 
-            messageToSendPerLoop = 10;
+            //
+            // TODO implement reception, once transport is ready
+            //
+
+            messagesToSendPerLoop = 10;
             this_thread::sleep_for(chrono::milliseconds(10));
         }
+
         return;
     }
 
