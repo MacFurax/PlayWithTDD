@@ -1,0 +1,12 @@
+{
+    "files.associations": {
+        "thread": "cpp",
+        "chrono": "cpp",
+        "mutex": "cpp",
+        "system_error": "cpp",
+        "iostream": "cpp",
+        "array": "cpp",
+        "initializer_list": "cpp",
+        "utility": "cpp"
+    }
+}
