@@ -1,3 +1,4 @@
 # PlayWithTDD
 
-Just a place to experimente TDD.
+Just a place to experiment with TDD.
+And a bit with CMake
